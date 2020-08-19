@@ -1,0 +1,90 @@
+https://code.visualstudio.com/
+https://nodejs.org/en/
+https://github.com/
+https://www.mongodb.com/
+(Setup locally /over cloud)
+https://dashboard.heroku.com/
+https://redis.io/download
+https://docs.docker.com/docker-for-windows/install/
+
+Basic JavaScript
+NPM
+Basic NodeJS(in built)(Os,file,http)
+NodeJS(full Stack App) (Node-EJS-Mongo-Express)
+Third Party Api (Weather Api)
+Redis
+Node-Es6(.babel)
+Email With Node(Sendgrid)
+Github
+MongoDb Basic
+Api with NodeJS(Rest)
+DashBoard(Crud)
+Oauth(with github)
+Login/Logout(JWT)
+OO_NodeJs
+Testing
+NodeJs with postgres
+Pm2
+Heroku
+GraphQl API
+ChatApp
+Production 
+Docker
+Nginx
+
+///////////////////////////////////////////
+Node> Async single thread non block I/O
+code =>bit
+V8
+
+/////////////////////
+NPM
+Node Package Manager
+https://www.npmjs.com/
+
+JSON> javaScript Object Notation
+[
+    {
+        id:1,
+        name:"John",
+        class:"Node"
+    },
+    {
+        id:2,
+        name:"Alvin",
+        class:"UI"
+    }
+]
+
+///////////////////
+package.json
+
+> starting point
+> cmd to start,stop,dev,build
+> packages
+> meta data> name,version,author
+
+>>>>><<<<<<<<
+Step to create package.json
+>>>>>>>><<<<<<<<
+**NodeJs must be installed in system
+> go inside the folder using cmd/terminal
+>type "npm init"
+>answer all question
+>type "yes"
+
+
+>>>>>>>>>><<<<<<<<
+Package
+>>>>>>>>>><<<<<<<<
+
+local dependency
+global dependency
+dev dependency
+
+
+>>>>>>>>>><<<<<<<<
+How to install local package
+>>>>>>>>>><<<<<<<<
+> go inside the folder using cmd/terminal
+> npm i packagename
