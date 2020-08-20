@@ -88,3 +88,44 @@ How to install local package
 >>>>>>>>>><<<<<<<<
 > go inside the folder using cmd/terminal
 > npm i packagename
+
+
+local dependency
+> local to the folder
+> max dependency will install locally
+
+global dependency
+> This will install in my system
+> it need admin access to install
+> it doesnot add in package.json
+> package that help to build/generate/run
+
+>>>>>>>>>><<<<<<<<
+How to install gloabl package
+>>>>>>>>>><<<<<<<<
+#windows
+> open cmd as admin
+> npm i -g packagename
+
+Please email your online related queries to onlinetraining@nareshit.com, or Call/Whatsapp us on +91-8179191999.
+#Mac/linux
+> open termainl
+> sudo npm i -g packagename
+
+sudo npm i -g @aakashdeveloper/create-node-app
+
+//////
+Step to generate node app
+///////
+#windows
+> open cmd as admin
+> npm i -g @aakashdeveloper/create-node-app
+
+#Mac/linux
+> open termainl
+> sudo npm i -g @aakashdeveloper/create-node-app
+
+>>>Go Inside folder where you want to generate
+>>>generate
+>>> select node-app
+>>> appname
