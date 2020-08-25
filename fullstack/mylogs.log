@@ -1,0 +1,12 @@
+GET /city 304 - - 20.016 ms
+GET /hotels 304 - - 3.381 ms
+GET / 304 - - 5.433 ms
+GET /details 304 - - 23.250 ms
+GET /hotels 304 - - 2.167 ms
+GET /hotels 304 - - 2.204 ms
+GET /hotels 404 145 - 18.890 ms
+GET /hotel 200 1844 - 20.059 ms
+GET /hotel/details 200 18 - 5.741 ms
+GET /city 304 - - 3.503 ms
+GET /city/details 200 16 - 2.094 ms
+GET /city 304 - - 3.198 ms
