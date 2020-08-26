@@ -129,3 +129,6 @@ Step to generate node app
 >>>generate
 >>> select node-app
 >>> appname
+
+///Automatically restart
+npm i -g nodemon
