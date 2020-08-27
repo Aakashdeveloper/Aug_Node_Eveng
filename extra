@@ -132,3 +132,15 @@ Step to generate node app
 
 ///Automatically restart
 npm i -g nodemon
+
+
+template engine
+EJS
+
+
+
+function add(a,b){
+
+}
+
+add(1,2)

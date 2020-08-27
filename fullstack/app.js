@@ -5,8 +5,15 @@ var morgan = require('morgan');
 var fs = require('fs')
 var cors = require('cors');
 var chalk = require('chalk');
-var hotelRouter = express.Router();
-var cityRouter = express.Router();
+
+var menu = [
+  {name:'Home',link:'/'},
+  {name:'City',link:'/city'},
+  {name:'Hotels',link:'/hotel'}
+]
+
+var hotelRouter = require('./src/routes/hotelRoutes')(menu);
+var cityRouter = require('./src/routes/cityRoutes')(menu);
 
 //Cors> cross origin resource sharing
 app.use(cors());
@@ -14,210 +21,17 @@ app.use(cors());
 app.use(morgan('tiny',{
     stream: fs.createWriteStream('mylogs.log',{flags:'a'})
 }));
-
-var city = [
-    {
-        "_id": 1,
-        "city_name": "Delhi",
-        "city": 1,
-        "country_name": "India"
-      },
-      {
-        "_id": 3,
-        "city_name": "Pune",
-        "city": 3,
-        "country_name": "India"
-      },
-      {
-        "_id": 2,
-        "city_name": "Mumbai",
-        "city": 2,
-        "country_name": "India"
-      },
-      {
-        "_id": 4,
-        "city_name": "Chandigarh",
-        "city": 4,
-        "country_name": "India"
-      },
-      {
-        "_id": 5,
-        "city_name": "Goa",
-        "city": 5,
-        "country_name": "India"
-      },
-      {
-        "_id": 6,
-        "city_name": "Manali",
-        "city": 6,
-        "country_name": "India"
-      }
-]
-
-var hotel=[
-    {
-        "_id": "1",
-        "name": "Roseate House",
-        "city_name": "New Delhi",
-        "city": "1",
-        "locality": "Aerocity, New Delhi",
-        "thumb": "https://i.ibb.co/pv8Kf4m/roseate.jpg",
-        "cost": 8399,
-        "address": "Plot No 10, GMR Hospitality District, Indira Gandhi International Airport, Aerocity",
-        "type": [
-          {
-            "roomtype": "1",
-            "name": "Deluxe Room"
-          },
-          {
-            "roomtype": "4",
-            "name": "Semi Deluxe Room"
-          },
-          {
-            "roomtype": "2",
-            "name": "Premiere Rooms"
-          }
-        ],
-        "tripType": [
-          {
-            "trip": "1",
-            "name": "Business"
-          },
-          {
-            "trip": "2",
-            "name": "Holiday"
-          }
-        ]
-      },
-      {
-        "_id": "2",
-        "name": "Pride Plaza Hotel ",
-        "city_name": "New Delhi",
-        "city": "1",
-        "locality": "Aerocity, New Delhi",
-        "thumb": "https://i.ibb.co/5nKNcz1/pride.jpg",
-        "cost": 4000,
-        "address": "Asset 5-A, Hospitality District, Aerocity, IGI Airport , New Delhi",
-        "type": [
-          {
-            "roomtype": "1",
-            "name": "Deluxe Room"
-          },
-          {
-            "roomtype": "2",
-            "name": "Premiere Rooms"
-          },
-          {
-            "roomtype": "3",
-            "name": "Budget Room"
-          }
-        ],
-        "tripType": [
-          {
-            "trip": "1",
-            "name": "Business"
-          },
-          {
-            "trip": "2",
-            "name": "Holiday"
-          }
-        ]
-      },
-      {
-        "_id": "3",
-        "name": "The Piccadily",
-        "city_name": "New Delhi",
-        "city": "1",
-        "locality": "Janakpuri, New Delhi",
-        "thumb": "https://i.ibb.co/QD1RRBk/piccadily.jpg",
-        "cost": 5170,
-        "address": "Janakpuri, District Centre Complex, Near Janak Puri West Metro Station",
-        "type": [
-          {
-            "roomtype": "3",
-            "name": "Budget Room"
-          },
-          {
-            "roomtype": "4",
-            "name": "Semi Deluxe Room"
-          },
-          {
-            "roomtype": "2",
-            "name": "Premiere Rooms"
-          }
-        ],
-        "tripType": [
-          {
-            "trip": "4",
-            "name": "Luxury"
-          },
-          {
-            "trip": "3",
-            "name": "Travel"
-          }
-        ]
-      },
-      {
-        "_id": "4",
-        "name": "The Ashtan Sarovar Portico",
-        "city_name": "New Delhi",
-        "city": "1",
-        "locality": "Greenpark, New Delhi",
-        "thumb": "https://i.ibb.co/TbVsznT/sarovar.jpg",
-        "cost": 8399,
-        "address": "C2, Green park Extension, Green Park Extn, Behind Gurudwara, Nr Greenpark Metro Station, New Delhi",
-        "type": [
-          {
-            "roomtype": "3",
-            "name": "Budget Room"
-          },
-          {
-            "roomtype": "4",
-            "name": "Semi Deluxe Room"
-          },
-          {
-            "roomtype": "1",
-            "name": "Deluxe Room"
-          }
-        ],
-        "tripType": [
-          {
-            "trip": "4",
-            "name": "Luxury"
-          },
-          {
-            "trip": "3",
-            "name": "Travel"
-          }
-        ]
-      }
-]
+//Specify the path of public/static file(css/js)
+app.use(express.static(__dirname+'/public'));
+//Path for HTML
+app.set('views','./src/views');
+//View Engine
+app.set('view engine','ejs');
 
 app.get('/',function(req,res){
-    res.send("Hi from home")
+    //res.send("Hi from home")
+    res.render('index',{title:"Home Page",menu:menu})
 });
-
-cityRouter.route('/')
-    .get(function(req,res){
-        res.send(city)
-    });
-
-cityRouter.route('/details')
-    .get(function(req,res){
-        res.send('Details for city')
-    });
-
-hotelRouter.route('/')
-    .get(function(req,res){
-        res.send(hotel)
-    });
-
-hotelRouter.route('/
-')
-    .get(function(req,res){
-        res.send('Details for hotels')
-    });
-
 
 app.use('/hotel',hotelRouter);
 app.use('/city',cityRouter);
