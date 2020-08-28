@@ -45,7 +45,7 @@ function router(menu){
     cityRouter.route('/')
         .get(function(req,res){
             //res.send(city)
-            res.render('city',{title:'Cities Page',menu:menu})
+            res.render('city',{title:'Cities Page',menu:menu,citydata:city})
     });
 
     cityRouter.route('/details')

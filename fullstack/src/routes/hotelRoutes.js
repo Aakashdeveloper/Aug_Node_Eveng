@@ -144,7 +144,7 @@ function router(abc){
     hotelRouter.route('/')
     .get(function(req,res){
        // res.send(hotel)
-       res.render('hotel',{title:'Hotels Page',menu:abc})
+       res.render('hotel',{title:'Hotels Page',menu:abc,hoteldata:hotel})
     });
 
     hotelRouter.route('/')

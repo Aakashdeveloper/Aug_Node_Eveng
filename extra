@@ -11,6 +11,7 @@ Basic JavaScript
 NPM
 Basic NodeJS(in built)(Os,file,http)
 NodeJS(full Stack App) (Node-EJS-Mongo-Express)
+////////////////////////////
 Third Party Api (Weather Api)
 Redis
 Node-Es6(.babel)
@@ -144,3 +145,67 @@ function add(a,b){
 }
 
 add(1,2)
+
+https://www.mongodb.com/
+> go to the bin folder
+> type mongod( it will start mongodb server)
+> in new command prompt 
+> go to the bin folder
+> type mongo(it will start mongo client)
+
+/////////////////////////////////////////////
+rollno | hindi | english | Computer
+1      | 80    |         |
+2      |       | 80      |
+3      | 80    |         | 80
+
+
+[
+    {
+        rollno:1,
+        hindi:80
+    },
+    {
+        rollno:2,
+        english:80
+    },
+    {
+        rollno:3,
+        hindi:80,
+        Computer:80
+    }
+]
+
+////////////////////////////////////////
+Sql                 MongoDb
+database            database
+table               collection
+row                 document
+3306                27017
+///////
+to see all database
+>show dbs
+# To Create new database
+> use dbname
+# to create table/insert record
+> db.city.insert({name:'Delhi',country:'India'})
+> db.city.insert({name:'Helsinki',country:'Finland'})
+> db.student.insert({name:'John',country:'USA'})
+
+db.city.insert({_id:1,name:'Mumbai',country:'India'})
+db.city.insert({_id:2,name:'Venice',country:'Italy'})
+db.city.insert({_id:3,name:'Amsterdam',country:'Netherlands'})
+
+db.city.insertMany([
+    {_id:4,name:'Nice',country:'France'},
+    {_id:5,name:'Innburg',country:'Austria'}
+])
+
+# To See all the collection
+> show collections
+
+# To See all the data
+(select * from city)
+> db.city.find({})
+> db.city.find({country:'India',name:'Delhi'})
+> db.hotels.find().pretty()
