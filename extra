@@ -15,18 +15,15 @@ Third Party Api (Weather Api)
 Node-Es6(.babel)
 Github
 Redis  > 6379
-////////////////////////////
 Email With Node(Sendgrid)
 MongoDb Basic
-
+////////////////////////////
 Api with NodeJS(Rest)
 DashBoard(Crud)
-
+OO_NodeJs
 Oauth(with github)
 
 Login/Logout(JWT)
-
-OO_NodeJs
 Testing
 NodeJs with postgres
 Pm2
@@ -214,6 +211,35 @@ db.city.insertMany([
 > db.city.find({country:'India',name:'Delhi'})
 > db.hotels.find().pretty()
 
+>>>Delete with condition
+db.users.remove({_id:87897878})
+
+>> Delete all record
+db.users.remove({})
+
+>>>>>>update
+db.users.update(
+    {_id:1},
+    {
+        $set:{
+           country:'India'
+        }
+    }
+)
+
+>>>>> update +insert => upsert
+db.users.update(
+    {_id:122},
+    {
+        $set:{
+        name:'lisa',
+        city:'Boston',
+        country:'India'
+        }
+    },
+    {upsert:true}
+)
+
 npm i @babel/core @babel/preset-env @babel/register
 
 >>>>First time from new folder<<<<<<<<
@@ -235,3 +261,9 @@ redis
 >>> get key
 >>> KEYS *
 >>>
+
+Crud
+create    > post
+read      > get 
+update    > put
+delete    > delete
