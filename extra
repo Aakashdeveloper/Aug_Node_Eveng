@@ -267,3 +267,5 @@ create    > post
 read      > get 
 update    > put
 delete    > delete
+
+npm i body-parser express ejs mongodb cors chai chai-http mocha
