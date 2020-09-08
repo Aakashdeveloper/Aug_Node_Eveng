@@ -17,16 +17,15 @@ Github
 Redis  > 6379
 Email With Node(Sendgrid)
 MongoDb Basic
-////////////////////////////
 Api with NodeJS(Rest)
+Testing
+Pm2
+////////////////////////////
 DashBoard(Crud)
 OO_NodeJs
 Oauth(with github)
-
 Login/Logout(JWT)
-Testing
 NodeJs with postgres
-Pm2
 Heroku
 GraphQl API
 ChatApp
@@ -269,3 +268,9 @@ update    > put
 delete    > delete
 
 npm i body-parser express ejs mongodb cors chai chai-http mocha
+
+
+npm i -g pm2
+pm2 start filename
+pm2 stop filename
+pm2 status

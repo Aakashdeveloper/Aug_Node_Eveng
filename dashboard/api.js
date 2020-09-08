@@ -18,7 +18,17 @@ app.get('/',(req,res) => {
 });
 
 app.get('/users',(req,res) => {
-    db.collection(col_name).find().toArray((err,result) => {
+    var query = {}
+    if(req.query.id){
+        query= {_id:parseInt(req.query.id),isActive:true}
+    }else if(req.query.city){
+        query={city:req.query.city,isActive:true}
+    }
+    else{
+        query={isActive:true}
+    }
+    
+    db.collection(col_name).find(query).toArray((err,result) => {
         if(err) throw err;
         res.send(result)
     })
