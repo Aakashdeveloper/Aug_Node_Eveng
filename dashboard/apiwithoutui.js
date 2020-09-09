@@ -12,28 +12,10 @@ let col_name="nodeapisep";
 app.use(cors());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-//Specify the path of public/static file(css/js)
-app.use(express.static(__dirname+'/public'));
-//Path for HTML
-app.set('views','./src/views');
-//View Engine
-app.set('view engine','ejs');
-
-app.get('/health',(req,res) => {
-    res.status(200).send("Health Ok")
-});
 
 app.get('/',(req,res) => {
-    db.collection(col_name).find({isActive:true}).toArray((err,result) => {
-        if(err) throw err;
-        res.render('index',{data:result})
-    })
-})
-
-app.get('/new',(req,res) => {
-    var id= Math.floor(Math.random()*10000)
-    res.render('admin',{id:id})
-})
+    res.status(200).send("Health Ok")
+});
 
 app.get('/users',(req,res) => {
     var query = {}
@@ -54,24 +36,16 @@ app.get('/users',(req,res) => {
 
 app.post('/addUser',(req,res) => {
     //console.log(req.body)
-    var data = {
-        "_id":parseInt(req.body._id),
-        "name":req.body.name,
-        "city":req.body.city,
-        "phone":req.body.phone,
-        "isActive":true
-    }
-    db.collection(col_name).insert(data,(err,result) => {
+    db.collection(col_name).insert(req.body,(err,result) => {
         if(err){
             throw err;
         }else{
-            res.redirect('/')
+            res.send("Data Added")
         }
     })
 })
 
 app.put('/updateUser',(req,res) => {
-
     db.collection(col_name).update(
         {_id:parseInt(req.body._id)},
         {
@@ -92,14 +66,14 @@ app.put('/updateUser',(req,res) => {
 });
 
 app.delete('/deleteUser',(req,res) => {
-    db.collection(col_name).remove({_id:parseInt(req.body._id)},(err,result) => {
+    db.collection(col_name).remove({_id:req.body._id},(err,result) => {
         if(err){
             throw err
         }else{
             res.send('Data Deleted')
         }
     })
-});
+})
 
 
 MongoClient.connect(mongourl,(err,client) => {
